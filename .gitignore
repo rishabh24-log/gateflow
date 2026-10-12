@@ -1,0 +1,27 @@
+# Java
+**/target/
+**/.mvn/wrapper/maven-wrapper.jar
+
+# Node
+**/node_modules/
+**/dist/
+**/dist-ssr/
+
+# Env and secrets
+.env
+.env.*
+*.pem
+*.p12
+
+# IDE / OS
+.idea/
+.vscode/
+.classpath
+.project
+.settings/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
