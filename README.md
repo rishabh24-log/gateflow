@@ -84,28 +84,6 @@ cd ..\usage-service
 cd ..
 docker compose up --build
 ```
-
-- Gateway: `http://localhost:8081`
-- Second instance: `http://localhost:8083`
-- Usage (direct): `http://localhost:8082`
-- Dashboard still via `npm run dev` in `frontend` (proxies to `8081`)
-
-## API map
-
-| Path | Auth | Purpose |
-|---|---|---|
-| `POST /api/auth/login` | Public | JWT |
-| `GET /api/status` | Public | Liveness JSON |
-| `GET /api/admin/metrics` | JWT | Overview cards |
-| `GET /api/admin/requests` | JWT | Recent logs |
-| `GET/POST /api/admin/keys` | JWT | Manage keys |
-| `GET /api/admin/usage` | JWT | Usage reports in the dashboard |
-| `/usage/**` | `X-API-Key` | Proxied to the Usage service |
-
-## What to say in an interview
-
-GateFlow is a learning-scale gateway: one downstream Usage service, hashed API keys, shared Redis counters, JWT for the control plane, and a circuit breaker you can trip with `GET /usage/fail`. It is not a production Kong/NGINX replacement. It shows how those pieces fit together.
-
 ## Stack
 
 Java 17, Spring Boot 4, Spring Security, JPA, Postgres/H2, Redis, React, TypeScript, Vite, Docker Compose.
